@@ -1,25 +1,38 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "manifest_version":2,
+  "name": "Canv++",
+  "description": "Provide additional front end functionality for canvas website",
+  "version":"1.0.0",
+  "icons":{
+      "30": "images/icon30.png",
+      "48": "images/icon48.png",
+     "128": "images/icon128.png"
+  },
+  "browser_action":{
+      "default_icon":{
+         "30": "images/icon30.png",
+         "48": "images/icon48.png"
+      }
+      ,
+      "default_popup":"popup.html"
+  },
+  "permissions":[
+      "storage",
+      "tabs",
+      "activeTab",
+      "webNavigation",
+      "webRequest",
+      "webRequestBlocking"],
+  "content_scripts":[{
+  "matches":["https://*/lrccd.instructure.com/*"],
+      "js":["content.js"]
+     
+  }],
+  "background":{
+      "scripts":["background.js"],
+      "persistent": true
+  }
+  
+  
 }
+
